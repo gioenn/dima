@@ -60,7 +60,6 @@ class ImageDialog extends StatelessWidget {
   final List<String> urls;
   const ImageDialog(this.urls, {Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     List<Image> images = urls.map((url) => Image.network(url)).toList();
