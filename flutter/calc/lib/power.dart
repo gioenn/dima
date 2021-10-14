@@ -4,7 +4,7 @@ import 'calculator.dart';
 class Power extends StatefulWidget {
   final Function update;
   const Power(this.update, {Key? key}) : super(key: key);
-  
+
   @override
   _PowerState createState() => _PowerState();
 }
@@ -21,7 +21,7 @@ class _PowerState extends State<Power> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-              SizedBox(
+            SizedBox(
                 width: 100,
                 child: TextField(
                   textAlign: TextAlign.center,
@@ -44,8 +44,12 @@ class _PowerState extends State<Power> {
           ]),
       TextButton(
           style: buttonStyle,
-          onPressed: () => widget.update(power(
-              int.parse(baseController.text), int.parse(expController.text))),
+          onPressed: () {
+            widget.update(power(
+                int.parse(baseController.text), int.parse(expController.text)));
+            baseController.clear();
+            expController.clear();
+          },
           child: const Text("POWER"))
     ]);
   }
@@ -58,4 +62,5 @@ class _PowerState extends State<Power> {
   }
 }
 
-var buttonStyle = TextButton.styleFrom(primary: Colors.white, backgroundColor: Colors.greenAccent);
+var buttonStyle = TextButton.styleFrom(
+    primary: Colors.white, backgroundColor: Colors.greenAccent);
