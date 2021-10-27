@@ -28,10 +28,11 @@ class Movies extends StatefulWidget {
 class _MoviesState extends State<Movies> {
   List _movies = [];
 
-  void _updateMovies(String search) {
-    searchMovies(search).then((movies) => setState(() {
+  void _updateMovies(String search) async {
+    List movies = await searchMovies(search);
+    setState(() {
           _movies = movies;
-        }));
+        });
   }
 
   @override
@@ -47,7 +48,7 @@ class _MoviesState extends State<Movies> {
                   fontSize: 18,
                   fontWeight: FontWeight.w200,
                   color: Colors.black),
-              onChanged: _updateMovies),
+              onChanged: (x) => _updateMovies(x)),
           Expanded(
               child: ListView.builder(
                   shrinkWrap: true,
