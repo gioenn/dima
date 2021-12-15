@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CounterCompose">
         <activity
+            android:name=".ResultActivity"
+            android:exported="true"
+            android:label="@string/title_activity_result"
+            android:theme="@style/Theme.CounterCompose.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
